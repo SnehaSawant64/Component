@@ -1,4 +1,5 @@
-# clock-analog 👋
+# clock-analog
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/owner/my-element)
 ![Version](https://img.shields.io/badge/version-1.0.2-blue.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/github/license/hybridx/webcomponents)](https://github.com/hybridx/webcomponents/blob/master/LICENSE)
 
