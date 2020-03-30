@@ -1,0 +1,25 @@
+{
+  "name": "webcomponents-x",
+  "version": "1.0.0",
+  "description": "A lib for web components(custom components) by hybridY",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hybridx/webcomponents.git"
+  },
+  "keywords": [
+    "web",
+    "webcomponents",
+    "components",
+    "componentsx",
+    "components-x",
+    "x",
+    "hybridx"
+  ],
+  "author": "Sneha <scsawant1997@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/SnehaSawant64/component#readme"
+}
