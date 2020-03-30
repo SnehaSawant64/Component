@@ -13,7 +13,7 @@
 npm run test
 ```
 ## Usage
-### Install hybridx webcomponents
+### Install hybridy webcomponents
 - Use npm package manager to install components
 ```
 npm install --save clock-analog
