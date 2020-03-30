@@ -33,7 +33,7 @@ import 'clock-analog/dist/clock-analog.js';
 👤 **Sneha Sawant**
 
 * Website: https://SnehaSawant64.github.io
-* Github: [@hybridx](https://github.com/SnehaSawant64)
+* Github: [@Sneha](https://github.com/SnehaSawant64)
 
 ## 📝 License
 
