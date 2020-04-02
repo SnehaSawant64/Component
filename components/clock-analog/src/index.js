@@ -2,9 +2,9 @@ const clock = document.createElement('template');
 clock.innerHTML = `
 <div class="container">
 	<div class="clock">
-			<span id="hour" class="hands"></span>
-		 	<span id="minute" class="hands"></span>
-		 	<span id="second" class="hands"></span>
+		<img id="hourHand" class="hands" src="https://raw.githubusercontent.com/SnehaSawant64/webcomponents/master/components/clock-analog/images/hour_hand.png" alt="">
+		<img id="minuteHand" class="hands" src="https://raw.githubusercontent.com/SnehaSawant64/webcomponents/master/components/clock-analog/images/minute_hand.png" alt="">
+		<img id="secondHand" class="hands" src="https://raw.githubusercontent.com/SnehaSawant64/webcomponents/master/components/clock-analog/images/second_hand.png" alt="">
 	</div>
 </div>
 <style>
@@ -18,6 +18,7 @@ clock.innerHTML = `
 	width: 400px;
 	height: 400px;
 	background: url(https://raw.githubusercontent.com/SnehaSawant64/webcomponents/master/components/clock-analog/images/clock_face.jpg);
+	border-radius: 50%;
 }
 .clock:after {
 	position: absolute;
@@ -34,6 +35,15 @@ clock.innerHTML = `
 	position: absolute;
   top: 0;
   left: 0;
+}
+
+@media screen and (min-width: 400px)  and ( max-width: 655px ) {
+	img.hands {// width: 200px;	height: 200px; }
+	img.clock { //width: 200px;	height: 200px; }
+}
+@media screen and (max-width: 399px ){
+	img.hands { //width: 60px; height:60px }
+	img.clock { //width: 60px; height:60px }
 }
 </style>
 `;
@@ -52,40 +62,20 @@ class Clock extends HTMLElement {
 
 	constructor() {
 		super();
-		var date = new Date();
-		this.hour = date.getHours() % 12; // 0 - 23
-		this.minute = date.getMinutes();
-		this.second = date.getSeconds();
 	}
-
 	connectedCallback() {
 		const shadow = this.attachShadow({ mode: 'open' });
 		shadow.appendChild(clock.content.cloneNode(true));
 
-		window.setInterval(function() {
-			console.log("setInterval call");
-
-			console.log(this.hour);
-			console.log(this.minute);
-			console.log(this.second);
-
-			var hourDeg = (this.hour * 30) + (0.5 * this.minute); // every hour, 30 deg. 30 / 60
-			var minuteDeg = (this.minute * 6) + (0.1 * this.second); // every minute, 6 deg. 6 / 60
-			var secondDeg = this.second * 6; // 360 / 60
-
-			shadow.getElementById('hour').innerHTML = `<img id="hourHand" class="hands" src="https://raw.githubusercontent.com/SnehaSawant64/webcomponents/master/components/clock-analog/images/hour_hand.png" alt="">`;
-			shadow.getElementById('minute').innerHTML = `<img id="minuteHand" class="hands" src="https://raw.githubusercontent.com/SnehaSawant64/webcomponents/master/components/clock-analog/images/minute_hand.png" alt="">`;
-			shadow.getElementById('second').innerHTML = `<img id="secondHand" class="hands" src="https://raw.githubusercontent.com/SnehaSawant64/webcomponents/master/components/clock-analog/images/second_hand.png" alt="">`;
-
-			console.log(hourDeg);
-			console.log(minuteDeg);
-			console.log(secondDeg);
-
+		setInterval(function() {
+			let d = new Date();
+			var hourDeg = (d.getHours() * 30) + (0.5 * d.getMinutes()); // every hour, 30 deg. 30 / 60
+			var minuteDeg = (d.getMinutes() * 6) + (0.1 * d.getSeconds()); // every minute, 6 deg. 6 / 60
+			var secondDeg = d.getSeconds() * 6; // 360 / 60
 			shadow.getElementById('hourHand').style.transform = 'rotate(' + hourDeg + 'deg)';
 			shadow.getElementById('minuteHand').style.transform = 'rotate(' + minuteDeg + 'deg)';
 			shadow.getElementById('secondHand').style.transform = 'rotate(' + secondDeg + 'deg)';
-
-		}, 5000);
+		}, 1000);
 	}
 }
 
